@@ -5,6 +5,7 @@
 package model;
 
 import java.util.ArrayList;
+import util.FileHelper;
 
 /**
  *
@@ -31,12 +32,22 @@ public class QLSinhVien {
     
     public void DocDanhSachSinhVien(String filename)
     {
-        //sinh viên viết code 
+        ArrayList<String> data= FileHelper.readFileText(filename);
+        dsSinhVien.clear();
+        for(String item:data){
+            String [] arr=item.split(";");
+            SinhVien sv=new SinhVien();
+            sv.setMaso(arr[0]);
+            sv.setHoten(arr[1]);
+            sv.setGioitinh(Boolean.parseBoolean(arr[2]));
+            sv.setDiemTB(Double.parseDouble(arr[3]));
+            dsSinhVien.add(sv);
+        }
     }
 
     public boolean GhiDanhSachSinhVien(String filename)
     {      
-        //sinh viên viết code 
+        
         return true;
     }    
     

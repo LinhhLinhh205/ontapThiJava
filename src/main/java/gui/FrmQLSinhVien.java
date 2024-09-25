@@ -39,6 +39,7 @@ public class FrmQLSinhVien extends JFrame {
     public FrmQLSinhVien(String title) {
         super(title);
         createGUI();
+        createEvent();
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -84,4 +85,26 @@ public class FrmQLSinhVien extends JFrame {
         add(p2, BorderLayout.SOUTH);
     }
 
+    private void createEvent() {
+        btDocFile.addActionListener((e)->{
+            qlsv.DocDanhSachSinhVien(FILE_NAME);
+            loadData();
+        });
+        btThem.addActionListener((e)->{
+            String error="";
+            String ma=txtMaSo.getText();
+            String ten=txtHoTen.getText();
+            
+                    
+        });
+    }
+
+    private void loadData() {
+        model.setRowCount(0);
+        for(SinhVien sv:qlsv.getDsSinhVien()){
+            model.addRow(new Object[]{sv.getMaso(),sv.getHoten(),sv.isGioitinh(),sv.getDiemTB(),sv.getHocLuc()});
+        }
+    }
+
 }
+

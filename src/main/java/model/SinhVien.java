@@ -55,7 +55,16 @@ public class SinhVien {
     public String getHocLuc()
     {
        String kq="";
-       //sinh viên viết code       
+       if(diemTB<5)
+           kq="Yếu";
+       else if(diemTB<6.5)
+           kq="Trung bình";
+       else if(diemTB<7.5)
+           kq="Khá";
+       else if(diemTB<9)
+           kq="Giỏi";
+       else
+           kq="Xuất sắc";
        return kq;
     }  
    
