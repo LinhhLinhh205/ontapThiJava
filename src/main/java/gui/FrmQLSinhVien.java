@@ -63,6 +63,7 @@ public class FrmQLSinhVien extends JFrame {
 
         p.add(rdNam = new JRadioButton("Nam"));
         p.add(rdNu = new JRadioButton("Nữ"));
+        rdNam.setSelected(true);
 
         ButtonGroup btgPhai = new ButtonGroup();
         btgPhai.add(rdNam);
@@ -140,7 +141,13 @@ public class FrmQLSinhVien extends JFrame {
             if (qlsv.themSV(sv)) {
 
                 loadDataToJTable();
+
                 JOptionPane.showMessageDialog(this, "Đã thêm sinh viên thành công", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                txtMaSo.setText("");
+                txtHoTen.setText("");
+                txtDTB.setText("");
+                
+                chkSapXep.setSelected(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Thao tác thêm thất bại\nDo trùng mã sinh viên", "Thông báo", JOptionPane.ERROR_MESSAGE);
             }
